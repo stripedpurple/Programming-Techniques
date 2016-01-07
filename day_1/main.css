@@ -1,0 +1,33 @@
+body{
+	background-color: #333;
+	color:white;
+}
+
+div.main{
+	width: 60%;
+	margin: auto;
+}
+header,nav{
+	background-color: #AAA !important;
+	width: 100%;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+header nav ul li{
+	float: left;
+	list-style: none;
+	padding: 0 2% 0 2%;
+
+}
+
+a:visited, a:hover, a:focus, a:active, a{
+	color: white;
+}
+
+img{
+	float: left;
+	width: 255px;
+	height: auto;
+	padding: 1% 1% 1% 0;
+}
