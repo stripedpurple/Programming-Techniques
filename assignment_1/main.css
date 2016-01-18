@@ -1,0 +1,160 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+  background-image: url("http://gqbd.net/gqbd/wp-content/uploads/2014/02/GQBD-Pattern-Light.png");
+  background-color: #eee;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: "Open Sans","Helvetica Neue","Helvetica","Roboto","Arial",sans-serif;
+}
+
+/*================Normalizer================*/
+a, ul, ol, li{
+  text-decoration: none;
+  top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: black;
+}
+
+a:hover, :not(a.navitem){
+  font-weight: 600;
+}
+
+p{
+    margin-bottom: 1em;
+}
+h1, h2, h3, h4, h5, h6{
+    margin-bottom: 1em;
+}
+
+/*=================Header===================*/
+header.site-header{
+  height: 4em;
+  margin-top: 0;
+  width: 100%;
+  background: #eee;
+  border-top: solid 4px black;
+  border-bottom: solid 1px black;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+}
+
+
+#heading{
+    padding:0;
+}
+
+
+/*=================Nav Bar==================*/
+nav{
+    right: 1em;
+    top: 0;
+    position: absolute;
+    line-height: 3.75em;
+}
+
+li.navitem{
+    display: inline-block;
+    width: 25px;
+    font-weight: 200;
+    margin-left: 1em;
+    margin-right: 1em;
+    text-align: center;
+}
+
+li.navitem:hover{
+  border-bottom: solid 5px black !important;
+}
+
+#nav1{
+  border-bottom: 4px solid orange;
+}
+
+#nav2{
+  border-bottom: 4px solid #7BC145;
+}
+
+#nav3{
+  border-bottom: 4px solid purple;
+}
+
+#nav4{
+  border-bottom: 4px solid #00A2CF;
+}
+
+#nav5{
+  border-bottom: 4px solid #D9003E;
+}
+
+/*===================Logo==================*/
+.logo{
+    margin: 0 25px 0 0 ;
+    top: 0;
+    position: absolute;
+    float: left;
+}
+
+.logo img, .logo h1{
+    top: 0;
+    padding: 0;
+    margin: 0 10px 0 0;
+    float: left;
+}
+
+.logo img{
+    height: 4em;
+}
+
+.logo h1{
+    line-height: 2em;
+    top: 0;
+    height: 2em;
+}
+
+/*=============Main Container===============*/
+.main{
+    width: 60%;
+    margin: auto;
+    padding: 2em;
+    position: relative;
+}
+
+div#mainBody{
+  box-shadow: 0 10px 10px grey;
+  margin-top: 4em;
+  background-color: white;
+}
+
+.main>p:first-of-type::first-letter{
+  font-size: 2em;
+}
+
+#batman{
+  width: 16em;
+  height: auto;
+  padding-right: 2em;
+    float: left;
+}
+
+/*====================Table===================*/
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 50px;
+}
+
+table{
+  margin-bottom: 2em;
+}
