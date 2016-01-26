@@ -4,39 +4,40 @@
     font-family: "Open Sans","Helvetica Neue","Helvetica","Roboto","Arial",sans-serif;
 }
 body{
-    background-color: #eee;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-image: url("http://gqbd.net/gqbd/wp-content/uploads/2014/02/GQBD-Pattern-Light.png");
+    background: #eee url("http://imgur.com/HFL87T4.png") repeat;
 }
 
 /*================Normalizer================*/
 a, ul, ol, li {
     text-decoration: none;
     top: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+    font-size: 1.1em;
 }
 
-a, :not(header.site-header){
+a{
   color: orange;
 }
 
-header.site-header a{
-    color: #000;
+a:hover{
+    color: rebeccapurple !important;
 }
 
 ul, ol, li{
   color: black;
 }
 
-a:hover, :not(a.navitem){
-  font-weight: 600;
+span{
+    font-weight: 800;
+}
+
+
+a:hover{
+    color: orange;
 }
 
 p{
     margin-bottom: 1em;
+    font-size: 1.5em;
 }
 h1, h2, h3, h4, h5, h6{
     margin-bottom: 1em  ;
@@ -44,17 +45,20 @@ h1, h2, h3, h4, h5, h6{
 
 /*=================Header===================*/
 header.site-header{
-  height: 4em;
   margin-top: 0;
   width: 100%;
   background: #eee;
   border-top: solid 4px black;
   border-bottom: solid 1px black;
-  position: fixed;
+  /*position: fixed;*/
   z-index: 10000;
   top: 0;
+  color: #000;
 }
 
+header.site-header a{
+    color: #000;
+}
 
 #heading{
     padding:0;
@@ -63,73 +67,89 @@ header.site-header{
 
 /*=================Nav Bar==================*/
 nav{
-    right: 1em;
-    top: 0;
-    /*position: absolute;*/
-    line-height: 3.75em;
+    display: block;
+    width: 100%;
+}
+
+.navitem{
+    color: whitesmoke !important;
+    font-weight: 600;
+}
+
+.logo:hover{
+    color: black !important;
 }
 
 li.navitem{
     display: inline-block;
-    width: 25px;
+    height: 25px;
+    width:3em;
     font-weight: 200;
-    margin-right: 2em;
     text-align: center;
+    padding: 0 1em 0 1em;
+    margin:0;
+    line-height: 25px;
+    list-style: none;
+    list-style-position: inside;
+}
+
+li.navitem a{
+    color: whitesmoke;
+    font-weight: 500;
 }
 
 li.navitem:hover{
-  border-bottom: solid 5px black !important;
+  background-color: black !important;
 }
 
 #nav1{
   border-bottom: 4px solid orange;
+    background-color: #D9003E;
 }
 
 #nav2{
   border-bottom: 4px solid #7BC145;
+    background-color: orange;
 }
 
 #nav3{
-  border-bottom: 4px solid purple;
+  border-bottom: 4px solid rebeccapurple;
+    background-color: #7BC145;
 }
 
 #nav4{
   border-bottom: 4px solid #00A2CF;
+    background-color: rebeccapurple;
 }
 
 #nav5{
   border-bottom: 4px solid #D9003E;
+    background-color: #00A2CF;
 }
 
 /*===================Logo==================*/
-.logo{
-    margin: 0 25px 0 0 ;
-    top: 0;
-    /*position: absolute;*/
-    float: left;
+a.logo{
+    margin-bottom: 25px;
+    height: 4em;
 }
 
-.logo img, .logo h1{
-    top: 0;
-    padding: 0;
-    float: left;
+.logo{
+    
 }
 
 .logo img{
     height: 4em;
-    margin: 0 1em 0 0;
+    margin-right: 1em;
+    float: left;
 }
 
 .logo h1{
     line-height: 2em;
-    top: 0;
-    height: 2em;
-    margin:0;
 }
 
 /*=============Main Container===============*/
 .main{
-    width: 60%;
+    width: 50%;
     margin: auto;
     padding: 2em;
     position: relative;
@@ -137,7 +157,7 @@ li.navitem:hover{
 
 div#mainBody{
   box-shadow: 0 10px 10px grey;
-  margin-top: 4em;
+  /*margin-top: 7.5em;*/
   background-color: white;
 }
 
@@ -151,13 +171,14 @@ div#mainBody{
     margin-right: 2em;
     float: left;
     border: 5px solid black;
-    border-radius: 3em;
+    border-radius: 1em;
     padding:.5em;
 }
 
 /*====================Table===================*/
 table, td, th {
     border: 1px solid black;
+    padding: 0 0 0 1em ;
 }
 
 table {
@@ -166,9 +187,43 @@ table {
 }
 
 th {
-    height: 50px;
+    background: lightgrey;
+    text-align: left;
 }
 
 table{
   margin-bottom: 2em;
+}
+
+tr{
+    background-color: lightblue;
+}
+
+.colored{
+    background-color: lightcoral;
+}
+
+
+/*=====================footer====================*/
+footer{
+    padding:0 1em 0 2em;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin:0;
+    background-color: #00A2CF;
+    color: white;
+    -webkit-border-radius:1em 0 0 0;
+    -moz-border-radius:1em 0 0 0;
+    border-radius:1em 0 0 0;
+    height: 2em;
+    box-shadow: -7px 0 10px grey;
+    display: none;
+}
+
+footer p{
+    padding:0;
+    margin:0;
+    line-height:2em;
+    font-size: 1em;
 }
