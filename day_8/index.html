@@ -1,0 +1,55 @@
+<script type="text/javascript">
+  var range = function (num1, num2) {
+    var irange = [];
+    for (var i = 0; i < num2; i++) {
+      irange[i] = num1;
+      num1++;
+    }
+    return irange;
+  }
+
+  var sum = function (nums) {
+    var total = 0;
+    for (var i = 0; i < nums.length; i++) {
+      total += nums[i];
+    }
+    return total
+  }
+
+  console.log(sum(range(1,10)));
+</script>
+
+<script type="text/javascript">
+  function logEach(array) {
+    for (var i = 0; i < array.length; i++) {
+      console.log(array[i]);
+    }
+  }
+
+  function myForEach(array, callback) {
+    for (var i = 0; i < array.length; i++) {
+      callback(array[i]);
+    }
+  }
+
+myForEach(["foo", "boo", "zoo"],alert);
+
+["foo", "boo", "zoo"].forEach(function (index) {
+  console.log(index);
+})
+</script>
+
+<script type="text/javascript">
+  function noisy(f) {
+    return function (arg) {
+      console.log("calling with", arg);
+      var val = f(arg)
+      console.log("called with", arg, "- got", val);
+      return val;
+    }
+  }
+
+  noisy(function (a) {
+    return a
+  })("b")
+</script>
