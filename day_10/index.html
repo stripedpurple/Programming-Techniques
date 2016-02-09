@@ -1,13 +1,34 @@
 <script type="text/javascript">
-  function Person (gender) {
+  function Person (pname, age, gender) {
+      this.pname = pname;
     this.gender = gender;
+    this.age = age;
 
     this.speak = function (says) {
         console.log("the person says", says);
     }
+
+    this.aboutSelf = function () {
+        console.log(this.pname , '\n', this.age , '\n', this.gender);
+    }
   }
 
-  var henry = new Person("Questionable at best.");
-  henry.speak("Blah blah blah!!!")
+  var henry = new Person("Henry", 2, "Questionable at best." );
+  henry.speak("Blah blah blah!!!");
+  henry.aboutSelf();
 
+
+    var austin = new Person("Austin", 22, "God" );
+    austin.speak("wubalubadubdub");
+    austin.aboutSelf();
+
+    Person.prototype.eats = function (bool) {
+        if (bool) {
+            console.log("om nom nom nom");
+        }else {
+            console.log("Come on son!!!");
+        }
+    };
+
+    austin.eats(true)
 </script>
