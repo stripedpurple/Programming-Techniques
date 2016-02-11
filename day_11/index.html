@@ -1,0 +1,13 @@
+<script>
+    var map = {}
+    function storePhi(event, phi) {
+        map[event] = phi
+    }
+
+    storePhi("Pizza", 0.069)
+    storePhi("sdfsdf",- 0.043)
+    Object.prototype.nonesense =  "hi"
+    for (var name in map) {
+        console.log(name);
+    }
+</script>
