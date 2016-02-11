@@ -11,3 +11,46 @@
         console.log(name);
     }
 </script>
+
+
+<script>
+    var staff = [
+        employee = {
+            hours: 0,
+            pay: function () {
+                console.log("$$$$$");
+            },
+            get workHours(){
+                return this.hours
+            },
+            set workHours(value){
+                this.hours = value;
+            }
+        },
+        voulenteer = {
+            hours: 0,
+            pay: function () {
+                console.log("No Thanks!");
+            },
+            get workHours(){
+                return this.hours
+            },
+            set workHours(value){
+                this.hours = value;
+            }
+        }
+    ]
+    console.log(employee.workHours);
+    employee.workHours = 80;
+    console.log(employee.workHours);
+    console.log(employee.pay());
+
+    console.log(voulenteer.workHours);
+    voulenteer.workHours = 20;
+    console.log(voulenteer.workHours);
+    console.log(voulenteer.pay());
+
+    for (var member in staff){
+        console.log(staff[member].hours);
+    }
+</script>
