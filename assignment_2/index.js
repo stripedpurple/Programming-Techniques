@@ -6,22 +6,97 @@ When you have that working, modify your program to print "FizzBuzz", for numbers
 by both 3 and 5 ( and still print "Fizz" or "Buzz" for numbers divisible by only one of those).
 */
 
+for (var i = 1; i <= 100; i++) {
+    var str = '';
 
+    if (i % 3 === 0 && i % 5 === 0) {
+        str += 'Fizz Buzz';
+    }else if (i % 3 === 0) {
+        str += (str !== '' ? ' ' : '') + 'Fizz';
+    }else if (i % 5 === 0) {
+        str += (str !== '' ? ' ' : '') + 'Buzz';
+    }else if (str === '') {
+        str += i;
+    }
+
+    console.log(str);
+}
+
+// Recursive
+function fizzBuzz(i){
+    if (i >100){
+        return 0
+    }
+
+    var str = '';
+    if (i % 3 === 0 && i % 5 === 0) {
+        str += 'Fizz Buzz';
+    }else if (i % 3 === 0) {
+        str += (str !== '' ? ' ' : '') + 'Fizz';
+    }else if (i % 5 === 0) {
+        str += (str !== '' ? ' ' : '') + 'Buzz';
+    }else if (str === '') {
+        str += i;
+    }
+
+    console.log(str);
+    i++;
+    fizzBuzz(i)
+}
+
+fizzBuzz(1);
 
 /*
-2. You can get the Nth character, or letter, from a string by writing "string".charAt(N), similar to how you get its length with "s".length.
-The returned value will be a string containing only one character (for example, "b").
-The first character has position zero, which causes the last one to be found at position string.length - 1.
-In other words, a two-character string has length 2, and its characters have positions 0 and 1.
+2. You can get the Nth character, or letter, from a str by writing "str".charAt(N), similar to how you get its length with "s".length.
+The returned value will be a str containing only one character (for example, "b").
+The first character has position zero, which causes the last one to be found at position str.length - 1.
+In other words, a two-character str has length 2, and its characters have positions 0 and 1.
 
-Write a function countBs that takes a string as its only argument and returns a number that indicates how many uppercase "B" characters are in the string.
+Write a function countBs that takes a str as its only argument and returns a number that indicates how many uppercase "B" characters are in the str.
 
 Next, write a function called countChar that behaves like countBs, except it takes a second argument
 that indicates the character that is to be counted (rather than counting only uppercase "B" characters).
 Rewrite countBs to make use of this new function.
 */
 
+function countBs(str){
+    if (typeof str != "string"){
+        console.log("Please check your input argument.\nError", typeof str, "is not a string");
+        return 0;
+    }
+    var count = 0;
+    for ( var j in str ){
+        if (str[j] == 'B'){
+            count++;
+        }
+    }
+    return count;
+}
 
+console.log(countBs("The Beautiful Bouquet Blossomed in the Bright sun."));
+
+function countChar(str, char){
+    if (typeof str != "string"){
+        console.log("Please check your input argument.\nError", typeof str, "is not a string");
+        return 0;
+    }
+    var count = 0;
+    for ( var j in str ){
+        if ( str[j] == char ){
+            count++
+        }
+    }
+    return count
+}
+
+console.log(countChar("The Beautiful Bouquet Blossomed in the Bright sun.", "a"));
+
+
+function countBs2(str){
+    return countChar(str, "B")
+}
+
+console.log(countBs2("The Beautiful Bouquet Blossomed in the Bright sun."));
 
 /*
 3. Arrays have a method reverse, which changes the array by inverting the order in which elements appear.
@@ -31,6 +106,48 @@ The second, reverseArrayInPlace, does what the reverse method does: it modifies 
 Neither may use the standard revers method.
 */
 
+function reverseArray(arr){
+    if (typeof arr != "object"){
+        console.log("Please check your input argument.\nError", typeof arr, "is not a array");
+        return 0;
+    }
+
+    var newArr = [];
+    for (var j = arr.length - 1; j >= 0; j--){
+        newArr.push(arr[j]);
+    }
+    return newArr;
+}
+
+var myArr = [1, 2, 3, 4, 5];
+
+console.log(reverseArray(myArr));
+
+function reverseArrayInPlace(arr){
+    if (typeof arr != "object"){
+        console.log("Please check your input argument.\nError", typeof arr, "is not a array");
+        return 0;
+    }
+
+    var p1;
+    var p2;
+    var revCounter = arr.length - 1;
+    for (var j in arr){ // With out this conditional the array will be reversed twice.
+        if (j != revCounter) {
+            p1 = arr[j];
+            p2 = arr[revCounter];
+            arr[j] = p2;
+            arr[revCounter] = p1;
+            revCounter--;
+        }else{
+            return arr;
+        }
+    }
+}
+
+reverseArrayInPlace(myArr);
+console.log("Original\n====================");
+console.log(myArr);
 
 
 /*
@@ -43,3 +160,78 @@ same value or are objects with the same properties whose values are also equal w
 To find out whether to compare two things by identity (use the === operator for that) or by looking at their properties, you can use the typeof operator.
 If it produces "object" for both values, you should do a deep comparison. Do you have to take any exception into account?
 */
+
+function deepEqual(val1, val2){
+    if (typeof val1 != typeof val2){ // Rational behind this is simply that data types are not equal so even though 1 is equal to "1" it is only a shallow equivalence.
+        return false;
+    }
+    else if (typeof val1 == typeof val2 && typeof val1 == 'object'){
+        // Gets propertie names
+        var p1 = Object.getOwnPropertyNames(val1);
+        var p2 = Object.getOwnPropertyNames(val2);
+
+        // Check for equal object length
+        if (p1.length != p2.length) {
+            return false;
+        }
+
+        for (var j in p1) {
+            var props = p1[j];
+
+            // Checks if properties of the same name have equal values
+            if (typeof val1[props] == "object" &&  typeof val2[props] == "object") {
+                return deepEqual(val1[props], val2[props]);
+            }
+            else if (val1[props] !== val2[props]) {
+                return false;
+            }
+        }
+
+        // Objects are equal
+        return true;
+        //return deepEqual();
+    }
+    else if (typeof val1 == typeof val2 && typeof val1 != 'object'){
+         return val1 == val2;
+    }
+}
+
+console.log(deepEqual(1,2)); // False
+console.log(deepEqual(1,1)); // True
+console.log(deepEqual(1,"1")); // False
+
+var cat = {animal: true,
+    color:'blue',
+    likes:{
+        meat: true,
+        pizza: 'who doesn\'t'
+    }
+};
+
+var dog = {animal: true,
+    color:'blue',
+    likes:{
+        meat: true,
+        pizza: 'who doesn\'t'
+    }
+};
+
+console.log(deepEqual(cat, dog)); // True
+
+var lion = {animal: true,
+    color:'blue',
+    likes:{
+        meat: true,
+        pizza: 'who doesn\'t'
+    }
+};
+
+var monkey = {animal: true,
+    color:'blue',
+    likes:{
+        meat: false,
+        pizza: 'who doesn\'t'
+    }
+};
+
+console.log(deepEqual(lion, monkey)); // False
