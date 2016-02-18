@@ -1,0 +1,225 @@
+<html>
+
+<body>
+    <h1>Midterm Code Review</h1>
+    <p>Please be sure to open your console.</p>
+
+    <h2>Event Handling</h2>
+    <ul>
+        <li><a href="./01eventhandler.html">Event Handlers</a></li>
+        <li><a href="./02eventhandler-one-click.html">Single Click Event</a></li>
+        <li><a href="./03eventObject.html">Event Object</a></li>
+        <li><a href="./04eventPropagation.html">Event Propagation</a></li>
+        <li><a href="./05eventTargetProperty.html">Event Targeting Properties</a></li>
+        <li><a href="./06eventDefaultBehavior.html">Default Event Behaviors</a></li>
+        <li><a href="./07KeyEvents.html">Key Events</a></li>
+        <li><a href="./08ModifierKeyEvents.html">Modifier Keys Events</a></li>
+        <li><a href="./09keyPress.html">Key Press Event</a></li>
+    </ul>
+
+
+    <script>
+        // Variables
+        console.log("Variables");
+        console.log("========================================");
+
+        var age = 23; // Number
+        var likesPizza = true; // Boolean
+        var name = "Fritz"; // String
+        var char = 'A'; // Char
+        var numMaybe = NaN; // Not a Number
+
+        // Conditionals
+        console.log("Conditionals");
+        console.log("========================================");
+
+        if (1 > 0){
+            console.log('Yes it is!');
+        }else if (1 == 0){
+            console.log("Come on son!");
+        }else{
+            console.log('No it isn\'t');
+        }
+
+        switch (new Date().getDay()) {
+            case 0:
+                day = "Sunday";
+                break;
+            case 1:
+                day = "Monday";
+                break;
+            case 2:
+                day = "Tuesday";
+                break;
+            case 3:
+                day = "Wednesday";
+                break;
+            case 4:
+                day = "Thursday";
+                break;
+            case 5:
+                day = "Friday";
+                break;
+            case 6:
+                day = "Saturday";
+                break;
+        }
+
+
+        // Flow Control (Loops)
+        console.log("Flow Control (Loops)");
+        console.log("========================================");
+
+        for ( var j = 0; j < 10; j++){
+            console.log(j);
+        }
+
+        var q = 0;
+        while (q < 10){
+            console.log(q);
+            q++;
+        }
+
+        var arr = [5, 4, 3, 2, 1];
+        for (var g in arr){ // Used for walking through Objects such as arrays
+            console.log(g);
+        }
+
+        // functions
+        console.log("Functions");
+        console.log("========================================");
+
+        function Car(does){
+            console.log('The car ' + does + "!");
+        }
+
+        Car("speeds when driven by Austin");
+
+        var Soda = function (sound) { // Anonymous function assignment
+            console.log(sound);
+        };
+
+        Soda("fizz");
+
+
+        // Objects
+        console.log("Objects");
+        console.log("========================================");
+
+        var Person = {
+            Name: "Tejay",
+            Age: 22,
+            Sex: true
+        };
+
+        console.log(Person.Name); // Accessing properties
+        Person.eats = function (what){
+            console.log("I just ate some " + what + ".");
+        };
+
+        Person.eats("Mac & Cheese");
+
+
+        // JSON
+        /* JSON is a string version of a JS object*/
+        console.log("JSON (JavaScript Object Notation)");
+        console.log("========================================");
+
+        var Person2JSON = '{"Name": "Austin", "Age": 22, "Sex": "true"}';
+        var Person2 = JSON.parse(Person2JSON);
+
+        console.log(Person2.Age);
+
+        // Prototypes
+        console.log("ProtoTypes");
+        console.log("========================================");
+
+
+        function Human(first, last, age, eyecolor) {
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.eyeColor = eyecolor;
+        }
+
+        Human.prototype.about = function () {
+            console.log(this.firstName);
+            console.log(this.lastName);
+            console.log(this.age);
+            console.log(this.eyeColor);
+        };
+
+        var myFather = new Human("John", "Doe", 50, "blue");
+        var myMother = new Human("Sally", "Rally", 48, "green");
+
+        myFather.about();
+        myMother.about();
+
+
+        // Editing Default Prototypes
+        var cat = {}; // Empty Object
+        Object.prototype.nonsense = "hi";
+
+        for(var name in cat){ // Logs all Enumerable (Visible) Properties of the object cat
+            console.log(name);
+        }
+
+        console.log("nonsense" in cat);
+        console.log("toString" in cat);
+
+        // Sometimes we don't want to expose properties like above so we hide them instead
+
+        delete Object.prototype.nonsense; //delete the problematic property
+
+        Object.defineProperty(Object.prototype, "hiddenNonsense", {enumerable: false, value: "hi"}); // Defines new hidden property
+
+        for (var name in cat){ // Logs all Enumerable (Visible) Properties of the object cat but this time we dont see the newly added property
+            console.log(name);
+        }
+
+        console.log(cat.hiddenNonsense);
+
+        console.log(cat.hasOwnProperty("toString"));
+
+
+
+        // Polymorphism
+        var employee = {
+            hours: 0,
+            pay: function(){
+                console.log("$$$$$");
+            },
+            get workHours(){ // encapsulation
+                return this.hours;
+            },
+            set workHours(value){ // encapsulation
+                this.hours = value;
+            }
+        };
+
+        var volunteer = {
+            pay: function(){
+                console.log("Thanks!");
+            }
+        };
+
+        volunteer.pay();
+        employee.pay();
+
+        function getPay(staff){
+            if(typeof staff.pay === "function"){
+                staff.pay();
+            }
+
+        }
+
+        getPay(volunteer);
+        getPay(employee);
+        employee.workHours=80;
+        console.log(employee.workHours);
+
+
+
+    </script>
+</body>
+</html>
