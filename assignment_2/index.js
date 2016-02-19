@@ -9,7 +9,7 @@ by both 3 and 5 ( and still print "Fizz" or "Buzz" for numbers divisible by only
 for (var i = 1; i <= 100; i++) {
     var str = '';
 
-    if (i % 3 === 0 && i % 5 === 0) {
+    if (i % 3 === 0 && i % 5 === 0) { // This expression need to be placed first or fizzbuzz will never be returned
         str += 'Fizz Buzz';
     }else if (i % 3 === 0) {
         str += (str !== '' ? ' ' : '') + 'Fizz';
@@ -23,14 +23,15 @@ for (var i = 1; i <= 100; i++) {
 }
 
 // Recursive
+// I wrote it a second way because I want to demonstrate that there are many approaches to a problem
 function fizzBuzz(i){
     if (i >100){
         return 0
     }
 
     var str = '';
-    if (i % 3 === 0 && i % 5 === 0) {
-        str += 'Fizz Buzz';
+    if (i % 3 === 0 && i % 5 === 0) { // This expression need to be placed first or fizzbuzz will never be returned
+        str += 'FizzBuzz';
     }else if (i % 3 === 0) {
         str += (str !== '' ? ' ' : '') + 'Fizz';
     }else if (i % 5 === 0) {
@@ -155,9 +156,14 @@ To find out whether to compare two things by identity (use the === operator for 
 If it produces "object" for both values, you should do a deep comparison. Do you have to take any exception into account?
 */
 
+//The one exception to keep in mind is that null is an object
+
 function deepEqual(val1, val2){
     if (typeof val1 != typeof val2){ // Rational behind this is simply that data types are not equal so even though 1 is equal to "1" it is only a shallow equivalence.
         return false;
+    }
+    else if (val1 == null && val2 == null){
+        return true
     }
     else if (typeof val1 == typeof val2 && typeof val1 == 'object'){
         // Gets propertie names
@@ -173,7 +179,7 @@ function deepEqual(val1, val2){
             var props = p1[j];
 
             // Checks if properties of the same name have equal values
-            if (typeof val1[props] == "object" &&  typeof val2[props] == "object") {
+            if (typeof val1[props] == "object" &&  typeof val2[props] == "object" && val1[props] != null && val2[props] != null){
                 return deepEqual(val1[props], val2[props]);
             }
             else if (val1[props] !== val2[props]) {
@@ -229,3 +235,9 @@ var monkey = {animal: true,
 };
 
 console.log(deepEqual(lion, monkey)); // False
+
+console.log("The nulls");
+
+console.log(deepEqual(null, null)); // True
+console.log(deepEqual(null, 1)); // False
+
