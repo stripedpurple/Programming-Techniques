@@ -1,0 +1,13 @@
+
+<p>This page turns green when you hold the g key.</p>
+<script>
+console.log("Green".charCodeAt(0));
+  addEventListener("keydown",function(event){
+    if(event.keyCode == 71)
+      document.body.style.background = "green";
+  });
+  addEventListener("keyup", function(event){
+  	if(event.keyCode == 71)
+  		document.body.style.background = "";
+  });
+</script>
