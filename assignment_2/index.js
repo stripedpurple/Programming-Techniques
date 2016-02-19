@@ -123,7 +123,7 @@ var myArr = [1, 2, 3, 4, 5, 6];
 console.log(reverseArray(myArr));
 
 
-var myArr = [1, 2, 3, 4, 5, 6];
+var myArr = [1, 2, 3, 4, 5, 6,7];
 function reverseArrayInPlace(arr){
     if (typeof arr != "object"){
         console.log("Please check your input argument.\nError", typeof arr, "is not a array");
@@ -133,11 +133,10 @@ function reverseArrayInPlace(arr){
     var p1;
     for (var j = 0; j < arr.length/2; j++){ // With out this conditional the array will be reversed twice.
             p1 = arr[j];
-            arr[arr.length - j -1] = p1;
-            arr[j] = p2;
-            return arr;
-        }
+            arr[j] = arr.length - j;
+            arr[arr.length - j - 1] = p1;
     }
+    return arr;
 }
 
 reverseArrayInPlace(myArr);
