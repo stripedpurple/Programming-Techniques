@@ -1,6 +1,6 @@
 // Question 2 (Please open the html to view the results of this program)
 document.querySelector('#txt').addEventListener("keypress", function (event) {
-    if (event.keyCode == 89 || event.keyCode == 88 || event.keyCode == 77) {
+    if (event.keyCode == 89 || event.keyCode == 90 || event.keyCode == 77) {
         event.preventDefault()
         $("#txt").effect("shake")
     }
