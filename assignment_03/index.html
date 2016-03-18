@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <style>
+        body {
+            background: deeppink url("http://cs625629.vk.me/v625629571/3be1/J0vp1A0vzEo.jpg");
+            background-size: 100% 100%;
+            font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+            font-weight: 500;
+            font-size: x-large;
+            color: whitesmoke;
+            height: 100vh;
+        }
+
+        .maincontainer {
+            padding: 1em;
+            background-color: rgba(0, 0, 0, 0.5);
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            position: absolute;
+            box-shadow: 4px 6px 16px #2E2F30;
+            -webkit-appearance: none;
+            border: none;
+
+        }
+
+        .maincontainer * {
+            text-align: center;
+            width: 100%;
+        }
+
+        .maincontainer form input {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            line-height: 2em;
+            font-size: x-large;
+            color: white;
+        }
+        .maincontainer form i{
+            font-size: x-small;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="maincontainer">
+    <form>
+        <p>Please open the Developer Console</p>
+        <input id="txt" type="text" placeholder="Type anything except X, Y, & M">
+        <i>* Note this box does not filter lowercase x, y, and m</i>
+    </form>
+</div>
+<script src='/main.js'></script>
+</body>
