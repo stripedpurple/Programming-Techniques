@@ -1,0 +1,7 @@
+Question 1
+----------------------------------------------
+Node JS is an application that provides an
+interface to the OS and IO, as well as a
+means to execute JS outside the constrains of
+the browser. Further it provides a way of
+executing js as asynchronous and synchronous.
